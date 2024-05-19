@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Potta+One&display=swap");
+
+body {
+  font-family: "Potta One", system-ui;
+}
+
+#root {
+  overflow: hidden;
+}
+
+#bg-video {
+  filter: brightness(70%);
+  height: 100%;
+  object-fit: cover;
+  position: fixed;
+  width: 100%;
+  z-index: -1;
+}
