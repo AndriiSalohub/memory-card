@@ -2,10 +2,18 @@
 
 body {
   font-family: "Potta One", system-ui;
+  color: white;
 }
 
 #root {
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
 }
 
 #bg-video {

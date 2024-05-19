@@ -1,0 +1,98 @@
+.level-choose {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  &__logo {
+    width: 30vw;
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    color: #a1ac82;
+    font-size: 60px;
+    margin-bottom: 50px;
+    text-shadow:
+      -0.06em 0 0.08em #000,
+      0.06em 0 0.08em #000,
+      0 0.06em 0.08em #000,
+      0 -0.06em 0.08em #000,
+      -0.06em 0.06em 0.08em #000,
+      0.06em 0.06em 0.08em #000,
+      -0.06em -0.06em 0.08em #000,
+      0.06em -0.06em 0.08em #000;
+  }
+
+  &__variants {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  &__button {
+    font-family: "Potta One", system-ui;
+    border: none;
+    background-color: #a1ac82;
+    border-radius: 8px;
+    box-shadow:
+      0 5px 10px #000,
+      0 -5px 10px #000;
+    color: #000;
+    font-size: 24px;
+    padding: 14px 18px;
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+@media (hover: hover) {
+  .level-choose__button:hover {
+    scale: 1.1;
+  }
+}
+
+@media (hover: none) {
+  .level-choose__button:active {
+    scale: 1.1;
+  }
+}
+
+@media (max-width: 786px) {
+  .level-choose {
+    &__logo {
+      width: 60vw;
+    }
+
+    &__title {
+      font-size: 50px;
+    }
+
+    &__button {
+      font-size: 22px;
+      padding: 12px 16px;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .level-choose {
+    &__logo {
+      width: 60vw;
+    }
+
+    &__title {
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+
+    &__variants {
+      gap: 10px;
+    }
+
+    &__button {
+      font-size: 18px;
+      padding: 10px 14px;
+    }
+  }
+}
