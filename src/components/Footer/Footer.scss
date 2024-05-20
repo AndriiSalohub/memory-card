@@ -1,0 +1,38 @@
+$button-background: #a86a25;
+
+.footer {
+  padding: 20px 40px;
+
+  &__sounds {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background-color: $button-background;
+    padding: 5px;
+    transition: all 0.3s ease-in-out;
+
+    & img {
+      width: 45px;
+    }
+  }
+}
+
+@media (hover: hover) {
+  .footer__button:hover {
+    scale: 1.1;
+  }
+}
+
+@media (hover: none) {
+  .footer__button:active {
+    scale: 1.1;
+  }
+}
