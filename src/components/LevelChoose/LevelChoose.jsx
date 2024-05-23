@@ -5,6 +5,7 @@ import { SoundContext } from "../SoundContext/SoundContext";
 
 const LevelChoose = () => {
   const { playSound } = useContext(SoundContext);
+
   return (
     <main className="level-choose">
       <img className="level-choose__logo" src={logo} alt="logo" />

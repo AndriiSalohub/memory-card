@@ -9,8 +9,8 @@ import "./Footer.scss";
 
 const Footer = () => {
   const audioRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const { isSoundEnabled, toggleSound, playSound } = useContext(SoundContext);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const { playSound, isSoundEnabled, toggleSound } = useContext(SoundContext);
 
   useEffect(() => {
     audioRef.current.volume = 0.05;
@@ -27,7 +27,7 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-      <sectioon className="footer__sounds">
+      <section className="footer__sounds">
         <button
           className="footer__button footer__button_music"
           onClick={() => {
@@ -48,7 +48,7 @@ const Footer = () => {
             alt="volume button image"
           />
         </button>
-      </sectioon>
+      </section>
     </footer>
   );
 };
