@@ -2,6 +2,8 @@ $button-background: #a86a25;
 
 .footer {
   padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
 
   &__sounds {
     display: flex;
@@ -10,6 +12,7 @@ $button-background: #a86a25;
   }
 
   &__button {
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,6 +26,50 @@ $button-background: #a86a25;
       width: 45px;
     }
   }
+
+  &__rules {
+    position: relative;
+
+    &-info {
+      position: absolute;
+      width: 400px;
+      right: 190px;
+      top: 100px;
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+
+      & p {
+        background-color: #17233e;
+        border-radius: 20px;
+        box-shadow:
+          0 0 8px #424242,
+          0 0 8px #424242;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        margin-bottom: 5px;
+      }
+
+      &_visible {
+        top: -160px;
+        opacity: 1;
+      }
+    }
+
+    &-image {
+      width: 100px;
+      position: absolute;
+      right: 110px;
+      top: 100px;
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+
+      &_visible {
+        top: -45px;
+        opacity: 1;
+      }
+    }
+  }
 }
 
 @media (hover: hover) {
@@ -34,5 +81,50 @@ $button-background: #a86a25;
 @media (hover: none) {
   .footer__button:active {
     scale: 1.1;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 10px 20px;
+
+    &__button img {
+      width: 35px;
+    }
+
+    &__rules {
+      &-info {
+        right: 145px;
+      }
+
+      &-image {
+        right: 60px;
+      }
+    }
+  }
+}
+
+@media (max-width: 570px) {
+  .footer {
+    &__rules {
+      &-info {
+        width: 60vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .footer {
+    &__rules {
+      &-info {
+        width: 50vw;
+        right: 130px;
+
+        &_visible {
+          top: -210px;
+        }
+      }
+    }
   }
 }
