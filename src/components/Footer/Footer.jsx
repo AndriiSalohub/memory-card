@@ -11,24 +11,9 @@ import { SoundContext } from "../SoundContext/SoundContext";
 import "./Footer.scss";
 
 const Footer = () => {
-  const audioRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const { playSound, isSoundEnabled, toggleSound, isPlaying, toggleAudio } =
+    useContext(SoundContext);
   const [isRulesOpened, setIsRulesOpened] = useState(false);
-  const { playSound, isSoundEnabled, toggleSound } = useContext(SoundContext);
-
-  useEffect(() => {
-    audioRef.current.volume = 0.05;
-  }, [audioRef]);
-
-  const toggleAudio = () => {
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play();
-    }
-
-    setIsPlaying(!isPlaying);
-  };
 
   const toggleRules = () => {
     setIsRulesOpened(!isRulesOpened);
@@ -45,7 +30,6 @@ const Footer = () => {
         >
           <img src={isPlaying ? musicOn : musicOff} alt="music button image" />
         </button>
-        <audio ref={audioRef} src={backgroundMusic} loop />
         <button
           className="footer__button footer__button_sound"
           onClick={() => {
