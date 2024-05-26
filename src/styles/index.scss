@@ -24,3 +24,28 @@ main {
   width: 100%;
   z-index: -1;
 }
+
+.button {
+  font-family: "Potta One", system-ui;
+  border: none;
+  background-color: #a1ac82;
+  border-radius: 8px;
+  box-shadow:
+    0 5px 10px #000,
+    0 -5px 10px #000;
+  font-size: 24px;
+  padding: 14px 18px;
+  transition: all 0.2s ease-in-out;
+}
+
+@media (hover: hover) {
+  .button:hover {
+    scale: 1.1;
+  }
+}
+
+@media (hover: none) {
+  .button:active {
+    scale: 1.1;
+  }
+}

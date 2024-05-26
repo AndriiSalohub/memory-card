@@ -15,7 +15,7 @@ const LevelChoose = () => {
         <div className="level-choose__variants">
           <NavLink to="/level/easy">
             <button
-              className="level-choose__button level-choose__button-easy"
+              className="level-choose__button level-choose__button-easy button"
               id="easy"
               onClick={() => playSound()}
             >
@@ -24,7 +24,7 @@ const LevelChoose = () => {
           </NavLink>
           <NavLink to="/level/medium">
             <button
-              className="level-choose__button level-choose__button-medium"
+              className="level-choose__button level-choose__button-medium button"
               id="medium"
               onClick={() => playSound()}
             >
@@ -33,7 +33,7 @@ const LevelChoose = () => {
           </NavLink>
           <NavLink to="level/hard">
             <button
-              className="level-choose__button level-choose__button-hard"
+              className="level-choose__button level-choose__button-hard button"
               id="hard"
               onClick={() => playSound()}
             >

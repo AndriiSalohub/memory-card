@@ -2,14 +2,15 @@ import background from "./assets/images/camp.mp4";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import StartPage from "./pages/StartPage";
 import GamePage from "./pages/GamePage";
-import Footer from "./components/Footer/Footer";
 import { SoundProvider } from "./components/SoundContext/SoundContext";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <StartPage />,
+      errorElement: <ErrorPage />,
     },
     {
       path: "/level/:difficulty",
@@ -26,7 +27,6 @@ function App() {
       <SoundProvider>
         <>
           <RouterProvider router={router} />
-          <Footer />
         </>
       </SoundProvider>
     </>
