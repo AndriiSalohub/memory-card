@@ -12,7 +12,7 @@ function App() {
       element: <StartPage />,
     },
     {
-      path: "/level",
+      path: "/level/:difficulty",
       element: <GamePage />,
     },
   ]);

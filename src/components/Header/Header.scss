@@ -4,8 +4,26 @@
   justify-content: space-between;
   align-items: center;
 
+  &__button {
+    background-color: transparent;
+    border: none;
+    transition: all 0.3s ease-in-out;
+  }
+
   &__logo {
     width: 220px;
+  }
+}
+
+@media (hover: hover) {
+  .header__button:hover {
+    scale: 1.1;
+  }
+}
+
+@media (hover: none) {
+  .header__button:active {
+    scale: 1.1;
   }
 }
 
