@@ -1,0 +1,35 @@
+.game-level {
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+
+    & li {
+      cursor: pointer;
+      padding: 8px 8px 15px 8px;
+      border-radius: 12px;
+      background-image: url("../../assets//images//card_background.jpg");
+    }
+  }
+
+  &__image {
+    border-radius: 12px;
+    margin-bottom: 10px;
+  }
+
+  &__char-name {
+    text-align: center;
+    font-size: 18px;
+  }
+
+  &__state {
+    text-align: center;
+  }
+
+  &__image {
+    width: 230px;
+    height: 280px;
+  }
+}

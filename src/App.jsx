@@ -13,7 +13,7 @@ function App() {
       errorElement: <ErrorPage />,
     },
     {
-      path: "/level/:difficulty",
+      path: "/level/:diff",
       element: <GamePage />,
     },
   ]);
