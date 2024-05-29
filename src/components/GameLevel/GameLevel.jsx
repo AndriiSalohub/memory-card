@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useEffect } from "react";
+import lost from "../../assets/images/lost.jpg";
 import "./GameLevel.scss";
 
 const GameLevel = ({
@@ -47,8 +48,8 @@ const GameLevel = ({
     setCharactersToPlayWith(updatedCharacters);
 
     if (updatedCharacters.every((character) => character.clicked)) {
-      setGameState("won");
       setCurrentMove((move) => move + 1);
+      setGameState("won");
     } else {
       stateRoundResult(clickedCharacter);
       setTimeout(() => {
@@ -58,18 +59,27 @@ const GameLevel = ({
     }
   };
 
+  const handleRestart = () => {
+    setGameState("ongoing");
+    setCurrentMove(0);
+    getCharactersToPlayWith();
+  };
+
   return (
     <main className="game-level">
       <ul className="game-level__list">
-        {charactersToDisplay.map((character, index) => (
-          <li className="game-level__list-item" key={character.name}>
-            <img
-              key={index}
-              src={character.image}
-              alt={`Character ${index}`}
-              className="game-level__image"
-              onClick={() => handleCardClick(character)}
-            />
+        {charactersToDisplay.map((character) => (
+          <li
+            className="game-level__list-item"
+            key={character.name}
+            onClick={() => handleCardClick(character)}
+          >
+            <div
+              className="game-level__card-image"
+              style={{
+                backgroundImage: `url(${character.image})`,
+              }}
+            ></div>
             <p className="game-level__char-name">{character.name}</p>
           </li>
         ))}
@@ -77,6 +87,31 @@ const GameLevel = ({
       <p className="game-level__state">
         {currentMove} / {difficulty}
       </p>
+      <section
+        className={`game-level__result game-level__result_lose ${gameState === "lost" ? "result" : ""}`}
+      >
+        <h2 className="game-level__title game-level__title_lose">You lose!</h2>
+        <button
+          className="game-level__restart-button white-button"
+          onClick={() => handleRestart()}
+        >
+          Restart
+        </button>
+      </section>
+      <section
+        className={`game-level__result game-level__result_win ${gameState === "won" ? "result" : ""}`}
+      >
+        <h2 className="game-level__title game-level__title_win">You win!</h2>
+        <button
+          className="game-level__restart-button white-button"
+          onClick={() => handleRestart()}
+        >
+          Restart
+        </button>
+      </section>
+      <div
+        className={`overlay ${gameState !== "ongoing" ? "game-end" : ""}`}
+      ></div>
     </main>
   );
 };

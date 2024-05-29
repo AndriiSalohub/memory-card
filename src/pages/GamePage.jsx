@@ -35,6 +35,7 @@ const GamePage = () => {
   const [charactersToPlayWith, setCharactersToPlayWith] = useState([]);
   const [charactersToDisplay, setCharactersToDisplay] = useState([]);
   const [difficulty, setDifficulty] = useState(0);
+  const [shuffledLength, setShuffledLength] = useState(0);
   const [score, setScore] = useState(0);
   const [gameState, setGameState] = useState("ongoing");
   const [currentMove, setCurrentMove] = useState(0);
@@ -44,16 +45,20 @@ const GamePage = () => {
     switch (diff) {
       case "easy":
         remainingAttemptsValue = 5;
+        setShuffledLength(3);
         break;
       case "medium":
         remainingAttemptsValue = 7;
+        setShuffledLength(5);
         break;
       case "hard":
         remainingAttemptsValue = 10;
+        setShuffledLength(5);
         break;
       default:
         remainingAttemptsValue = 5;
     }
+
     setDifficulty(remainingAttemptsValue);
 
     let randomCharacters = [];
@@ -87,7 +92,7 @@ const GamePage = () => {
     let shuffledCharacters = [];
     let clicked = 0;
 
-    while (shuffledCharacters.length < difficulty - 2) {
+    while (shuffledCharacters.length < shuffledLength) {
       const randNum = Math.floor(Math.random() * array.length);
       const character = array[randNum];
       if (
