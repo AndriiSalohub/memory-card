@@ -2,7 +2,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useEffect } from "react";
-import lost from "../../assets/images/lost.jpg";
 import "./GameLevel.scss";
 
 const GameLevel = ({
@@ -17,6 +16,7 @@ const GameLevel = ({
   currentMove,
   setCurrentMove,
   difficulty,
+  setScore,
 }) => {
   useEffect(() => {
     getCharactersToPlayWith();
@@ -62,6 +62,7 @@ const GameLevel = ({
   const handleRestart = () => {
     setGameState("ongoing");
     setCurrentMove(0);
+    setScore(0);
     getCharactersToPlayWith();
   };
 

@@ -37,6 +37,7 @@ const GamePage = () => {
   const [difficulty, setDifficulty] = useState(0);
   const [shuffledLength, setShuffledLength] = useState(0);
   const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
   const [gameState, setGameState] = useState("ongoing");
   const [currentMove, setCurrentMove] = useState(0);
 
@@ -115,13 +116,16 @@ const GamePage = () => {
       return "win";
     } else {
       setScore(score + 1);
+      if (bestScore < score + 1) {
+        setBestScore(score + 1);
+      }
       return "";
     }
   };
 
   return (
     <>
-      <Header />
+      <Header score={score} bestScore={bestScore} />
       <GameLevel
         getCharactersToPlayWith={getCharactersToPlayWith}
         setCharactersToPlayWith={setCharactersToPlayWith}
@@ -135,6 +139,7 @@ const GamePage = () => {
         currentMove={currentMove}
         setCurrentMove={setCurrentMove}
         difficulty={difficulty}
+        setScore={setScore}
       />
       <Footer />
     </>

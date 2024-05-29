@@ -5,7 +5,7 @@ import "./Header.scss";
 import { useContext } from "react";
 import { SoundContext } from "../SoundContext/SoundContext";
 
-const Header = () => {
+const Header = ({ score, bestScore }) => {
   const { playSound } = useContext(SoundContext);
 
   return (
@@ -15,7 +15,7 @@ const Header = () => {
           <img className="header__logo" src={logo} alt="logo" />
         </NavLink>
       </button>
-      <ScoreBoard />
+      <ScoreBoard score={score} bestScore={bestScore} />
     </header>
   );
 };
