@@ -1,8 +1,8 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
+import PropTypes from "prop-types";
 import { useEffect } from "react";
 import "./GameLevel.scss";
+import Card from "../Card/Card";
+import GameResult from "../GameResult/GameResult";
 
 const GameLevel = ({
   charactersToDisplay,
@@ -70,51 +70,34 @@ const GameLevel = ({
     <main className="game-level">
       <ul className="game-level__list">
         {charactersToDisplay.map((character) => (
-          <li
-            className="game-level__list-item"
+          <Card
             key={character.name}
-            onClick={() => handleCardClick(character)}
-          >
-            <div
-              className="game-level__card-image"
-              style={{
-                backgroundImage: `url(${character.image})`,
-              }}
-            ></div>
-            <p className="game-level__char-name">{character.name}</p>
-          </li>
+            character={character}
+            handleCardClick={handleCardClick}
+          />
         ))}
       </ul>
       <p className="game-level__state">
         {currentMove} / {difficulty}
       </p>
-      <section
-        className={`game-level__result game-level__result_lose ${gameState === "lost" ? "result" : ""}`}
-      >
-        <h2 className="game-level__title game-level__title_lose">You lose!</h2>
-        <button
-          className="game-level__restart-button white-button"
-          onClick={() => handleRestart()}
-        >
-          Restart
-        </button>
-      </section>
-      <section
-        className={`game-level__result game-level__result_win ${gameState === "won" ? "result" : ""}`}
-      >
-        <h2 className="game-level__title game-level__title_win">You win!</h2>
-        <button
-          className="game-level__restart-button white-button"
-          onClick={() => handleRestart()}
-        >
-          Restart
-        </button>
-      </section>
-      <div
-        className={`overlay ${gameState !== "ongoing" ? "game-end" : ""}`}
-      ></div>
+      <GameResult gameState={gameState} handleRestart={handleRestart} />
     </main>
   );
+};
+
+GameLevel.propTypes = {
+  charactersToDisplay: PropTypes.array.isRequired,
+  getCharactersToPlayWith: PropTypes.func.isRequired,
+  setCharactersToPlayWith: PropTypes.func.isRequired,
+  charactersToPlayWith: PropTypes.array.isRequired,
+  stateRoundResult: PropTypes.func.isRequired,
+  shuffle: PropTypes.func.isRequired,
+  gameState: PropTypes.oneOf(["ongoing", "won", "lost"]).isRequired,
+  setGameState: PropTypes.func.isRequired,
+  currentMove: PropTypes.number.isRequired,
+  setCurrentMove: PropTypes.func.isRequired,
+  difficulty: PropTypes.number.isRequired,
+  setScore: PropTypes.func.isRequired,
 };
 
 export default GameLevel;

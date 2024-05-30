@@ -1,8 +1,9 @@
+import PropTypes from "prop-types";
+import { useContext } from "react";
 import logo from "../../assets/images/logo.png";
 import ScoreBoard from "../ScoreBoard/ScoreBoard";
 import { NavLink } from "react-router-dom";
 import "./Header.scss";
-import { useContext } from "react";
 import { SoundContext } from "../SoundContext/SoundContext";
 
 const Header = ({ score, bestScore }) => {
@@ -18,6 +19,11 @@ const Header = ({ score, bestScore }) => {
       <ScoreBoard score={score} bestScore={bestScore} />
     </header>
   );
+};
+
+Header.propTypes = {
+  score: PropTypes.number.isRequired,
+  bestScore: PropTypes.number.isRequired,
 };
 
 export default Header;

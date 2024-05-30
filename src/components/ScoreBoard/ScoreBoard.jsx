@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import "./ScoreBoard.scss";
 
 const ScoreBoard = ({ score, bestScore }) => {
@@ -7,6 +8,11 @@ const ScoreBoard = ({ score, bestScore }) => {
       <div className="scoreboard__best-score">Beset score: {bestScore}</div>
     </section>
   );
+};
+
+ScoreBoard.propTypes = {
+  score: PropTypes.number.isRequired,
+  bestScore: PropTypes.number.isRequired,
 };
 
 export default ScoreBoard;
