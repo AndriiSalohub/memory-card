@@ -5,8 +5,11 @@
   background-image: url("../../assets//images//card_background.jpg");
   aspect-ratio: 1/1.546;
   width: 220px;
+  transform-style: preserve-3d;
 
   &__image {
+    transform: translateZ(20px);
+    transform-style: preserve-3d;
     border-radius: 12px;
     margin-bottom: 10px;
     width: 100%;
@@ -17,6 +20,8 @@
   }
 
   &__char-name {
+    transform: translateZ(20px);
+    transform-style: preserve-3d;
     text-align: center;
     font-size: 20px;
   }
