@@ -41,12 +41,12 @@ const Card = ({ character, handleCardClick, isFlipped }) => {
 
   return (
     <motion.li
-      className={`game-card `}
+      className={`game-card ${isFlipped ? "flipped" : ""}`}
       key={character.name}
       onClick={() => handleCardClick(character)}
     >
       <motion.div
-        className={`game-card__front ${isFlipped ? "flipped" : ""}`}
+        className="game-card__front"
         onMouseMove={(e) => handleMouseMove(e)}
         onMouseLeave={(e) => handleMouseLeave(e)}
         style={{

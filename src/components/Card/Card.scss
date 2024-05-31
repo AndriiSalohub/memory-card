@@ -1,7 +1,9 @@
 .game-card {
-  position: relative;
-  cursor: pointer;
+  aspect-ratio: 1 / 1.546;
   width: 220px;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  cursor: pointer;
 
   &__front {
     border-radius: 12px;
@@ -9,7 +11,6 @@
     transform-style: preserve-3d;
     background-image: url("../../assets//images//card_background.jpg");
     padding: 8px 8px 15px 8px;
-    transition: transform 0.5s ease-in-out;
   }
 
   &__back {
