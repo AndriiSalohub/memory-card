@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
-import { useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import "./GameLevel.scss";
 import Card from "../Card/Card";
 import GameResult from "../GameResult/GameResult";
+import { SoundContext } from "../SoundContext/SoundContext";
 
 const GameLevel = ({
   charactersToDisplay,
@@ -18,6 +19,9 @@ const GameLevel = ({
   difficulty,
   setScore,
 }) => {
+  const { playFlip } = useContext(SoundContext);
+  const [isFlipped, setIsFlipped] = useState(false);
+
   useEffect(() => {
     getCharactersToPlayWith();
 
@@ -30,8 +34,6 @@ const GameLevel = ({
   }, []);
 
   const handleCardClick = (clickedCharacter) => {
-    console.log("Card clicked:", clickedCharacter);
-
     if (gameState !== "ongoing") return;
 
     if (clickedCharacter.clicked) {
@@ -45,6 +47,7 @@ const GameLevel = ({
         : character,
     );
 
+    setIsFlipped(true);
     setCharactersToPlayWith(updatedCharacters);
 
     if (updatedCharacters.every((character) => character.clicked)) {
@@ -55,8 +58,14 @@ const GameLevel = ({
       setTimeout(() => {
         shuffle(updatedCharacters);
         setCurrentMove((move) => move + 1);
+        playFlip();
       }, 300);
     }
+
+    setTimeout(() => {
+      setIsFlipped(false);
+      playFlip();
+    }, 1300);
   };
 
   const handleRestart = () => {
@@ -74,6 +83,8 @@ const GameLevel = ({
             key={character.name}
             character={character}
             handleCardClick={handleCardClick}
+            isFlipped={isFlipped}
+            setIsFlipped={setIsFlipped}
           />
         ))}
       </ul>
