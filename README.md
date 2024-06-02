@@ -62,8 +62,8 @@ To run the project locally, follow these steps:
 
 Check out the live demo of the Memory Card Game:
 
-- Netlify: [Netlify Demo Link]
-- Vercel: [Vercel Demo Link]
+- Netlify: https://jade-mousse-bef924.netlify.app/
+- Vercel: https://memory-card-6r6e.vercel.app/
 
 Choose your difficulty level, click on unique cards, and train your memory with the enchanting characters of Gravity Falls. Test your memory skills and see how long you can go without making a mistake!
 
