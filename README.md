@@ -1,9 +1,70 @@
-# React + Vite
+# Memory Card Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the Memory Card Game, a fun and challenging way to train your memory with a Gravity Falls. Players can choose from three difficulty levels - easy, medium, and hard - and aim to click on cards with unique characters they haven't clicked on before.
 
-Currently, two official plugins are available:
+## Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# memory-card
+The Memory Card Game is designed to help users improve their memory through engaging gameplay. The objective is to successfully click on each card with a unique character without repeating any selections, across varying levels of difficulty.
+
+## Game Rules
+
+- Click on a card to reveal a character.
+- Avoid clicking on the same character more than once.
+- The game ends when you click on a character you've already selected or when you pass all moves.
+
+## Project Configuration
+
+- Vite
+- Prettier
+- ESLint
+
+## Tech Stack
+
+- React
+- Scss
+- Framer Motion
+
+## Running the Project Locally
+
+To run the project locally, follow these steps:
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/AndriiSalohub/memory-card
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd memory-card
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   yarn install
+   ```
+
+4. Start the development server:
+
+   ```bash
+   yarn run
+   ```
+
+5. Open your web browser and navigate to:
+
+   ```
+   http://localhost:NUMBER
+   ```
+
+## Deployment
+
+Check out the live demo of the Memory Card Game:
+
+- Netlify: [Netlify Demo Link]
+- Vercel: [Vercel Demo Link]
+
+Choose your difficulty level, click on unique cards, and train your memory with the enchanting characters of Gravity Falls. Test your memory skills and see how long you can go without making a mistake!
+
+Feel free to explore, challenge yourself, and enjoy the fun and engaging gameplay of the Memory Card Game!
